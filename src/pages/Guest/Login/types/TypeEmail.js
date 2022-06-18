@@ -16,7 +16,7 @@ function TypeEmail() {
                 <img className="w-9 mr-2" src="images/email-inp.svg" alt="" />
                 <input className="caret-white text-white text-base bg-transparent outline-none font-semibold font-nunito" placeholder="Example@email.com" type="email" />
             </div>
-            <span className="block mx-auto font-semibold font-nunito text-white text-center">Login via Email</span>
+            <span className="text-sm block mx-auto font-semibold font-nunito text-[#C4C5C5] text-center">Login via Email</span>
 
             <Button path={"images/right_arrow.svg"} text={"Next"} />
         </>

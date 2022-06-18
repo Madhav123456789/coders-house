@@ -7,7 +7,7 @@ import { useState } from "react";
 
 function Activation() {
     // loading state
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
 
     // returning loading

@@ -9,13 +9,10 @@ const Steps = {
 };
 
 function Login() {
-    const [step , setStep] = useState(0);
+    const [step , setStep] = useState(1);
 
     // this is dynamic step component
     const Component = Steps[step];
-
-    
-
     
     return (
         <div className='pb-10 login-page h-[84vh]  flex  justify-center flex-col items-center'>

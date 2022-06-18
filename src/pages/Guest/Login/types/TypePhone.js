@@ -15,7 +15,7 @@ function PhonePhone() {
                 <img className="w-9 mr-2" src="images/phone-inp.svg" alt="" />
                 <input className="w-[171px] caret-white text-white text-base bg-transparent outline-none font-semibold font-nunito" placeholder="1234567890" type="number" />
             </div>
-            <span className="block mx-auto font-semibold font-nunito text-white text-center">Login via Mobile</span>
+            <span className="text-sm block mx-auto font-semibold font-nunito text-[#C4C5C5] text-center">Login via Mobile</span>
 
             <Button path={"images/right_arrow.svg"} text={"Next"} />
         </>
