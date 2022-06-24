@@ -5,8 +5,7 @@
 @tailwind utilities;
 
 * {
-    overflow: hidden !important;
-
+    overflow-x: hidden!important;
     user-select: none;
     -webkit-user-select: none;
     /* Safari */

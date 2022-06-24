@@ -9,7 +9,7 @@ const Types = {
     1: TypePhone
 };
 
-function StepForm() {
+function StepForm({setStep}) {
     const [type, setType] = useState(0);
 
     // this function will be used to change the steps
@@ -25,7 +25,7 @@ function StepForm() {
     const Component = Types[type];
     return (
         <>
-            <div className="space-x-2 choose-singup w-28 xl:w-[45vw] h-auto my-3 flex mx-auto justify-end items-center py-2">
+            <div className="overflow-hidden space-x-2 choose-singup w-28 xl:w-[45vw] h-auto my-3 flex mx-auto justify-end items-center py-2">
                 <div onClick={() => changeStep("email")} className={`boxes h-14 w-14 rounded-md flex items-center justify-center cursor-pointer ${type === 0 ? "bg-primary" : "bg-box-color"}`}>
                     <img src="images/opt-email.svg" className="w-9" alt="" />
                 </div>
@@ -37,7 +37,7 @@ function StepForm() {
 
             <Card>
                 {/* Using step here */}
-                <Component />
+                <Component setStep={setStep}/>
             </Card>
 
         </>

@@ -1,0 +1,13 @@
+.home-tab::after{
+    content:"";
+    width: 60%;
+    height: 4px;
+    background-color: #0077FF;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+}
+
+.margin-none{
+    margin: 0!important;
+}

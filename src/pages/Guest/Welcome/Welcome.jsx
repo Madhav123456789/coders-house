@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
 import Button from '../../../components/Button/Button'
 import Card from '../../../components/Card/Card'
 
-function Home() {
+function Welcome() {
   return (
     <div className='home-page h-[84vh]  flex  justify-center items-center'>
       <Card>
@@ -16,11 +17,13 @@ function Home() {
           {'We’re working hard to get Codershouse ready for everyone! While we wrap up the finishing youches, we’re adding people gradually to make sure nothing breaks :)'}
         </p>
 
-        <Button path={"images/right_arrow.svg"} text={"Get Logged In"}/>
+        <Link to={"/login"}>
+          <Button path={"images/right_arrow.svg"} text={"Get Logged In"} />
+        </Link>
 
       </Card>
     </div>
   )
 }
 
-export default Home
+export default Welcome
