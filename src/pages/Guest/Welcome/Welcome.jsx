@@ -4,7 +4,7 @@ import Card from '../../../components/Card/Card'
 
 function Welcome() {
   return (
-    <div className='home-page h-[84vh]  flex  justify-center items-center'>
+    <div className='home-page h-[84vh] overflow-hidden flex  justify-center items-center'>
       <Card>
         {/* card topbaar */}
         <div className="title flex items-center whitespace-nowrap  justify-center space-x-2">

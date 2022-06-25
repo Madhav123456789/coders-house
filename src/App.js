@@ -26,7 +26,7 @@ function App() {
         pauseOnHover
       />
 
-      <div className="bg-background w-[100vw] h-[100vh] overflow-x-hidden overflow-y-auto app">
+      
         <Topbaar />
         <Router>
           <Routes>
@@ -40,8 +40,8 @@ function App() {
             <Route path="/home" exact element={<Home />} />
           </Routes>
         </Router>
-      </div>
-    </>
+      </>
+
   );
 }
 

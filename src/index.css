@@ -4,8 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+body , html{
+    background-color: #121212;
+    max-width: 100%;
+    overflow-x: hidden;  
+}
+
 * {
-    overflow-x: hidden!important;
+    padding: 0;
+    margin: 0;
     user-select: none;
     -webkit-user-select: none;
     /* Safari */
@@ -16,6 +23,10 @@
     -ms-user-select: none;
     /* Internet Explorer/Edge */
     -webkit-tap-highlight-color: transparent;
+}
+
+.stuck{
+    overflow: hidden;
 }
 
 /* Chrome, Safari, Edge, Opera */

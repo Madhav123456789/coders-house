@@ -3,7 +3,7 @@ import Button from "../../../../components/Button/Button"
 
 function TypeEmail({setStep}) {
     return (
-        <>
+        <div className="overflow-hidden">
             {/* card topbaar */}
             <div className="title flex items-center whitespace-nowrap  justify-center space-x-2">
                 <img src="images/email-head.svg" alt="" />
@@ -19,7 +19,7 @@ function TypeEmail({setStep}) {
             <span className="text-sm block mx-auto font-semibold font-nunito text-[#C4C5C5] text-center">Login via Email</span>
 
             <Button path={"images/right_arrow.svg"} text={"Next"} onClick={()=>{setStep(1)}}/>
-        </>
+        </div>
     )
 }
 

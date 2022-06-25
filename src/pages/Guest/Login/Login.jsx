@@ -15,7 +15,7 @@ function Login() {
     const Component = Steps[step];
     
     return (
-        <div className='pb-10 login-page h-[84vh]  flex  justify-center flex-col items-center'>
+        <div className='pb-10 login-page h-[84vh] flex  justify-center flex-col items-center'>
             <Component setStep={setStep}/>
         </div>
     )

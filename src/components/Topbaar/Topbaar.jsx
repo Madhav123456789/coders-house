@@ -1,11 +1,19 @@
+import { useState } from "react";
+import MenuOptionsContainer from "../../container/MenuOptionsContainer";
+
 function Topbaar() {
     const islogged = true;
+    // this state to manage option container state
+    const [optCont , setOptCont] = useState("hidden");
+    // this state to manage local menu options
+    const [options , setOptions] = useState("hidden");
 
     // this function will be used to open the menu
     const openMenu = () => {
-        // setting app overflow hidden
-        document.querySelector(".app").style.overflow = "hidden";
-        document.head.style.overflowY = "hidden"
+        setOptions("visible");
+        setOptCont("flex");
+        // hidding scroll bar
+        document.querySelector("*").style.overflow = "hidden";
         // fincding container
         const cont = document.getElementById("menu-cont");
         // finding menu
@@ -19,8 +27,14 @@ function Topbaar() {
 
     // this function will be used to close the menu
     const closeMenu = () => {
-        // setting app overflow auto
-        document.querySelector(".app").style.overflowY = "auto";
+        setOptions("hidden");
+        setOptCont("hidden");
+        // hidding scroll bar
+        document.querySelector("*").style.overflow = "auto";
+        // setting body overflow
+        document.body.style.overflowX = "hidden";
+        // setting html overflow
+        document.querySelector("html").style.overflowX = "hidden";
         // fincding container
         const cont = document.getElementById("menu-cont");
         // finding menu
@@ -41,22 +55,29 @@ function Topbaar() {
             </div>
             <div className="right w-[50%] flex flex-row-reverse">
                 {/* this is hamburger */}
-                <div onClick={openMenu} className={"hamburger m-3 lg:hidden cursor-pointer" + `${islogged ? " block" : "hidden"}`}>
+                <div onClick={openMenu} className={"hamburger m-3 lg:hidden cursor-pointer" + `${islogged ? " block" : " hidden"}`}>
                     <div className="ham-lines w-10 h-[0.3rem] my-2 bg-white"></div>
                     <div className="ham-lines w-10 h-[0.3rem] my-2 bg-white"></div>
                     <div className="ham-lines w-10 h-[0.3rem] my-2 bg-white"></div>
                 </div>
 
                 {/* menu screen */}
-                <div id="menu-cont" onClick={closeMenu}  className="lg:hidden w-[100vw] h-[100vh] fixed flex justify-end bg-[#0000005f] z-10">
-                    <div onClick={(e)=>{e.stopPropagation()}} id="menu" className="menu lg:hidden h-[100vh] w-[0vw] top-0 fixed bg-box-color transition-all duration-300 z-20">
+                <div id="menu-cont" onClick={closeMenu} className="lg:hidden w-[0px] h-[100vh] fixed flex justify-end bg-[#0000005f] z-10">
+                    <div onClick={(e) => { e.stopPropagation() }} id="menu" className="menu lg:hidden h-[100vh] w-[0vw] top-0 fixed bg-box-color transition-all duration-300 z-20 flex flex-col justify-end">
+                        {/* profile */}
+                        <div className="border-[#0077FF] w-fit rounded-full border-2 p-1 absolute top-2 left-3">
+                            <img className="object-cover h-10" src="/images/act-avtaar-monkey.svg" alt="" />
+                        </div>
                         {/* closing menu btn */}
-                        <img onClick={closeMenu} className="absolute top-4 right-6 h-7" src="images/cross.svg" alt="" />
+                        <img onClick={closeMenu} className={`absolute top-4 right-6 h-7 ${options}`} src="images/cross.svg" alt="" />
+
+                        {/* Options */}
+                        <MenuOptionsContainer operation={closeMenu} state={optCont}/>
                     </div>
                 </div>
 
                 {/* this is Profile */}
-                <div className={"Profile m-3 cursor-pointer justify-center items-center space-x-2" + `${islogged ? " hidden lg:flex" : "hidden"}`}>
+                <div className={"Profile m-3 cursor-pointer justify-center items-center space-x-2" + `${islogged ? " hidden lg:flex" : " hidden"}`}>
                     <div className="text-white">Rakesh k</div>
                     <div className="border-[#0077FF] rounded-full border-2 p-1">
                         <img className="object-cover" src="/images/act-avtaar-monkey.svg" alt="" />

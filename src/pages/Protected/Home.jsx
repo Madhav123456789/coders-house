@@ -5,17 +5,22 @@ import RoomsContainer from "../../container/RoomsContainer";
 import Modal from "./Modal/Modal";
 import { useState } from "react";
 
+// global functions
+let openModal;
 function Home() {
     const [isModal , setIsModal] = useState("hidden");
 
     // function for open modal
-    const openModal = ()=>{
-        setIsModal("flex")
+    openModal = ()=>{
+        // hidding scroll bar
+        document.querySelector("*").style.overflow = "hidden";
+        // opening modal
+        setIsModal("flex");
     };
 
     return (
     <>
-        <div className="overflow-hidden home-page w-full  flex flex-col items-center border-t-[1px] border-[#ffffff1c]">
+        <div className="home-page w-full  flex flex-col items-center border-t-[1px] border-[#ffffff1c]">
             <div className="home-top h-16 w-full lg:mt-3 flex items-center justify-center">
                 <div className="w-[90%]  lg:w-[40%] flex items-center h-full">
                     {/* tab */}
@@ -41,4 +46,6 @@ function Home() {
     )
 }
 
-export default Home
+export default Home;
+
+export {openModal};
