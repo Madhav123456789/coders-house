@@ -22,6 +22,10 @@ function Modal({state , setState}) {
         setState("hidden");
     };
 
+    if(!state === "flex"){
+        return;
+    }
+
     return (
         <div onClick={closeModal} className={`fixed top-0 w-[100vw] h-[100vh] bg-[#00000099] ${state} items-center justify-center`}>
             <div onClick={(e)=>{e.stopPropagation()}} className="w-[80vw] sm:w-[70vw] lg:w-[40vw] xl:w-[20rem] h-[24rem] mb-[10vh] lg:mb-0 flex flex-col justify-start lg:h-[21rem] rounded-xl bg-box-color p-5 relative">
