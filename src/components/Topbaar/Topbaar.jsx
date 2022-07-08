@@ -1,8 +1,9 @@
 import { useState } from "react";
 import MenuOptionsContainer from "../../container/MenuOptionsContainer";
+import {useSelector} from "react-redux";
 
 function Topbaar() {
-    const islogged = true;
+    const {isAuth} = useSelector(s=>s.auth);
     // this state to manage option container state
     const [optCont , setOptCont] = useState("hidden");
     // this state to manage local menu options
@@ -55,7 +56,7 @@ function Topbaar() {
             </div>
             <div className="right w-[50%] flex flex-row-reverse">
                 {/* this is hamburger */}
-                <div onClick={openMenu} className={"hamburger m-3 lg:hidden cursor-pointer" + `${islogged ? " block" : " hidden"}`}>
+                <div onClick={openMenu} className={`hamburger m-3 lg:hidden cursor-pointer ${isAuth ? "block" : "hidden"}`}>
                     <div className="ham-lines w-10 h-[0.3rem] my-2 bg-white"></div>
                     <div className="ham-lines w-10 h-[0.3rem] my-2 bg-white"></div>
                     <div className="ham-lines w-10 h-[0.3rem] my-2 bg-white"></div>
@@ -77,7 +78,7 @@ function Topbaar() {
                 </div>
 
                 {/* this is Profile */}
-                <div className={"Profile m-3 cursor-pointer justify-center items-center space-x-2" + `${islogged ? " hidden lg:flex" : " hidden"}`}>
+                <div className={`Profile m-3 cursor-pointer justify-center items-center space-x-2 ${isAuth ? "hidden lg:flex" : " hidden"}`}>
                     <div className="text-white">Rakesh k</div>
                     <div className="border-[#0077FF] rounded-full border-2 p-1">
                         <img className="object-cover" src="/images/act-avtaar-monkey.svg" alt="" />

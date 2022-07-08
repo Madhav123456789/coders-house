@@ -8,11 +8,11 @@ const initialState = {
   type : "email",
   // those state will filled up during registration process
   user : {
-    mobile : null,
-    email : null,
     avtaar : null,
     name : null,
-    hash : null
+    hash : null,
+    // this state is only for sending with verification api
+    data : null
   }
 }
 
@@ -38,12 +38,11 @@ export const authSlice = createSlice({
 
     setUser(state , action){
       // destructuring user
-      const {name , mobile , email , avtaar , hash} = action.payload;
-      state.user.name = name;
-      state.user.mobile = mobile;
-      state.user.email = email;
-      state.user.avtaar = avtaar;
-      state.user.hash = hash;
+      const {name , avtaar , hash , data} = action.payload;
+      state.user.name = name||null;
+      state.user.avtaar = avtaar||null;
+      state.user.hash = hash||null;
+      state.user.data = data||null;
     },
 
     setType(state , action){
