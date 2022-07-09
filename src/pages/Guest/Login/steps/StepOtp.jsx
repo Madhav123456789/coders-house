@@ -6,6 +6,7 @@ import { useState , useCallback , useEffect } from "react";
 import { needVerify } from "../../../../api/user-api";
 import {useSelector , useDispatch} from "react-redux";
 import {authOk} from "../../../../app/auth";
+import {setUser} from "../../../../app/user";
 
 function StepOtp() {
   const dispatch = useDispatch();
@@ -54,6 +55,8 @@ function StepOtp() {
       if(response.flag){
           // dispatching
           dispatch(authOk());
+          // setting user 
+          dispatch(setUser(response.user));
           // show message
           toast.success(response.msg);
       };

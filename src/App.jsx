@@ -10,6 +10,9 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Protected/Home";
 import useProtectedRoutes from "./addons/hooks/useProtectedRoutes";
+import { useReloading } from "./addons/hooks/useReloading";
+import Profile from "./pages/Protected/Profile";
+import Room from "./pages/Protected/Room";
 
 
 function App() {
@@ -17,7 +20,12 @@ function App() {
   const {isAuth , activated} = useSelector(s=>s.auth);
   // protected routes
   const {Guest , SemiProtected , Protected} = useProtectedRoutes;
+
+  // using reloading custom hook to keep user logged In
+  const loading = useReloading();
   return (
+    loading?<div className="text-white">Loading</div>
+    :
     <>
       <ToastContainer
         position="top-left"
@@ -31,9 +39,8 @@ function App() {
         pauseOnHover
       />
 
-      
-        <Topbaar />
         <Router>
+          <Topbaar />
           <Routes>
             {/* Welcome */}
             <Route path="/" exact element={<Guest isAuth={isAuth}>
@@ -51,10 +58,16 @@ function App() {
             <Route path="/home" exact element={<Protected isAuth={isAuth} activated={activated}>
               <Home />
             </Protected>} />
+            {/* Profile */}
+            <Route path="/profile/:userId" exact element={<Protected isAuth={isAuth} activated={activated}>
+              <Profile />
+            </Protected>} />
+            <Route path="/room/:roomId" exact element={<Protected isAuth={isAuth} activated={activated}>
+              <Room />
+            </Protected>} />
           </Routes>
         </Router>
       </>
-
   );
 }
 

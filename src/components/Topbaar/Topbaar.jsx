@@ -1,9 +1,12 @@
 import { useState } from "react";
 import MenuOptionsContainer from "../../container/MenuOptionsContainer";
 import {useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 function Topbaar() {
+    const navigate = useNavigate();
     const {isAuth} = useSelector(s=>s.auth);
+    const {avtaar} = useSelector(s=>s.user);
     // this state to manage option container state
     const [optCont , setOptCont] = useState("hidden");
     // this state to manage local menu options
@@ -15,6 +18,8 @@ function Topbaar() {
         setOptCont("flex");
         // hidding scroll bar
         document.querySelector("*").style.overflow = "hidden";
+
+        document.getElementById("extra-border").style.display = "flex";
         // fincding container
         const cont = document.getElementById("menu-cont");
         // finding menu
@@ -45,6 +50,8 @@ function Topbaar() {
         menu.style.width = "0px";
         // decreasing the cont width
         cont.style.width = "0px";
+
+        document.getElementById("extra-border").style.display = "none";
     };
     return (
         <div className="overflow-hidden Navbaar top-0 bg-transparent w-[100vw] sm:w-[85vw] m-auto h-[6vh] flex items-center py-10 px-2">
@@ -66,7 +73,7 @@ function Topbaar() {
                 <div id="menu-cont" onClick={closeMenu} className="lg:hidden w-[0px] h-[100vh] fixed flex justify-end bg-[#0000005f] z-10">
                     <div onClick={(e) => { e.stopPropagation() }} id="menu" className="menu lg:hidden h-[100vh] w-[0vw] top-0 fixed bg-box-color transition-all duration-300 z-20 flex flex-col justify-end">
                         {/* profile */}
-                        <div className="border-[#0077FF] w-fit rounded-full border-2 p-1 absolute top-2 left-3">
+                        <div id="extra-border" className="border-[#0077FF] sm:hidden w-fit rounded-full border-2 p-1 absolute top-2 left-3">
                             <img className="object-cover h-10" src="/images/act-avtaar-monkey.svg" alt="" />
                         </div>
                         {/* closing menu btn */}
@@ -80,8 +87,8 @@ function Topbaar() {
                 {/* this is Profile */}
                 <div className={`Profile m-3 cursor-pointer justify-center items-center space-x-2 ${isAuth ? "hidden lg:flex" : " hidden"}`}>
                     <div className="text-white">Rakesh k</div>
-                    <div className="border-[#0077FF] rounded-full border-2 p-1">
-                        <img className="object-cover" src="/images/act-avtaar-monkey.svg" alt="" />
+                    <div className="border-[#0077FF] lg:flex hidden items-center justify-center w-10 h-10 rounded-[50%] border-2">
+                        <img onClick={()=>{navigate("/profile")}} className="object-cover rounded-[50%] h-8 w-8" src={avtaar||"/images/act-avtaar-monkey.svg"} alt="" />
                     </div>
                 </div>
             </div>

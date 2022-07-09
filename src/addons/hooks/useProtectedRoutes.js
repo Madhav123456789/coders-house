@@ -11,7 +11,7 @@ class ProtectedRotes {
     }
 
     Protected({isAuth , activated , children }) {
-        return !isAuth ? <Navigate to="/login" /> : isAuth && activated ? <Navigate to="/activation" />:children
+        return !isAuth ? <Navigate to="/login" /> : isAuth && !activated ? <Navigate to="/activation" />:children
         ;
     }
 }
