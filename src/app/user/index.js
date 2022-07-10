@@ -21,7 +21,7 @@ export const userSlice = createSlice({
         const {_id , name , avtaar , followers , followings , email , mobile , description , categories} = action.payload;
 
         // setting states
-        state._id = _id;
+        state._id = _id||null;
         state.name = name||null;
         state.avtaar = avtaar||null;
         state.followers = followers||0;
