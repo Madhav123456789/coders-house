@@ -3,7 +3,7 @@ import Card from "../../../../components/Card/Card";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState , useCallback , useEffect } from "react";
-import { needVerify } from "../../../../api/user-api";
+import { needVerifyForEmail } from "../../../../api/user-api";
 import {useSelector , useDispatch} from "react-redux";
 import {activate, authOk} from "../../../../app/auth";
 import {setUser} from "../../../../app/user";
@@ -49,7 +49,7 @@ function StepOtp() {
 
     // api request
     try {
-      const {data:response} = await needVerify({hash , otp , data});
+      const {data:response} = await needVerifyForEmail({hash , otp , data});
 
       // logic
       if(response.flag){

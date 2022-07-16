@@ -39,7 +39,7 @@ function Home() {
                 </div>
             </div>
 
-            <RoomsContainer/>
+            <RoomsContainer openModal={openModal}/>
             <Modal state={isModal} setState={setIsModal}/>
         </div>
     </>

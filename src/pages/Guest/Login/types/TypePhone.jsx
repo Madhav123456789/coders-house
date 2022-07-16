@@ -1,6 +1,6 @@
 import Button from "../../../../components/Button/Button";
 import {isMobilePhone} from "validator";
-import { needOtp } from "../../../../api/user-api";
+import { needOtpForEmail } from "../../../../api/user-api";
 import { useState , useEffect , useCallback } from "react";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -46,7 +46,7 @@ function PhonePhone({setStep}) {
 
         // api request
         try {
-            const {data} = await needOtp({mobile});
+            const {data} = await needOtpForEmail({mobile});
 
             // logic
             if(data.flag){

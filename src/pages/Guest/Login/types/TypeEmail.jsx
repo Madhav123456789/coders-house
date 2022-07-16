@@ -1,5 +1,5 @@
 import Button from "../../../../components/Button/Button";
-import { needOtp } from "../../../../api/user-api";
+import { needOtpForEmail } from "../../../../api/user-api";
 import { useState , useEffect , useCallback } from "react";
 import {isEmail} from "validator";
 import { toast } from 'react-toastify';
@@ -47,7 +47,7 @@ function TypeEmail({setStep}) {
 
     // api request
     try {
-        const {data} = await needOtp({email});
+        const {data} = await needOtpForEmail({email});
 
         // logic
         if(data.flag){
